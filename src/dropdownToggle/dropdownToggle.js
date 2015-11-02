@@ -35,6 +35,9 @@ angular.module('ui.bootstrap.dropdownToggle', []).directive('dropdownToggle', ['
           element.parent().addClass('open');
           openElement = element;
           closeMenu = function (event) {
+            if (event && (event.which === 3 || event.which === 2)) {
+                return;
+            }
             if (event) {
               event.preventDefault();
               event.stopPropagation();
